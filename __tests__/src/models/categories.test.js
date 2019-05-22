@@ -11,8 +11,7 @@ describe('Categories Model', () => {
     let obj = {name: 'category1'};
     let categories = new Categories();
 
-    return categories
-      .post(obj)
+    return categories.post(obj)
       .then((record) => {
         Object.keys(obj).forEach((key) => {
           expect(record[key]).toEqual(obj[key]);
@@ -26,8 +25,7 @@ describe('Categories Model', () => {
     let obj = { name: 'Test Category' };
 
     return categories.post(obj).then((record) => {
-      return categories
-        .get(record._id)
+      return categories.get(record._id)
         .then((category) => {
           Object.keys(obj).forEach((key) => {
             expect(category[0][key]).toEqual(obj[key]);
@@ -43,10 +41,9 @@ describe('Categories Model', () => {
     let obj2 = { name: 'Updated Category' };
 
     return categories.post(obj).then((record) => {
-      return categories
-        .put(record._id, obj2)
+      return categories.put(record._id, obj2)
         .then((category) => {
-          Object.keys(obj2).forEach((key) => {
+          Object.keys(obj).forEach((key) => {
             expect(category[0][key]).toEqual(obj2[key]);
           });
         })
@@ -57,11 +54,9 @@ describe('Categories Model', () => {
   it('can delete() a category', () => {
     const categories = new Categories();
     let obj = { name: 'Test Category' };
-    let obj2 = { name: 'Updated Category' };
 
-    return categories.post(obj2).post(obj).then((record) => {
-      return categories
-        .delete(record._id)
+    return categories.post(obj).then((record) => {
+      return categories.delete(record._id)
         .then((category) => {
           // verify delete returns deleted category
           Object.keys(obj).forEach((key) => {

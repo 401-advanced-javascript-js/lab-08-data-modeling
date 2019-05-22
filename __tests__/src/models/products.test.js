@@ -2,7 +2,7 @@
 
 const Products = require('../../../src/models/products.js');
 
-const supergoose = require('./supergoose.js');
+const supergoose = require('../../supergoose.js');
 beforeAll(supergoose.startDB);
 afterAll(supergoose.stopDB);
 
@@ -11,8 +11,7 @@ describe('Products Model', () => {
     let obj = {name: 'product1'};
     let products = new Products();
 
-    return products
-      .post(obj)
+    return products.post(obj)
       .then((record) => {
         Object.keys(obj).forEach((key) => {
           expect(record[key]).toEqual(obj[key]);
@@ -26,8 +25,7 @@ describe('Products Model', () => {
     let obj = { name: 'Test Product' };
 
     return products.post(obj).then((record) => {
-      return products
-        .get(record._id)
+      return products.get(record._id)
         .then((product) => {
           Object.keys(obj).forEach((key) => {
             expect(product[0][key]).toEqual(obj[key]);
@@ -43,8 +41,7 @@ describe('Products Model', () => {
     let obj2 = { name: 'Updated Product' };
 
     return products.post(obj).then((record) => {
-      return products
-        .put(record._id, obj2)
+      return products.put(record._id, obj2)
         .then((category) => {
           Object.keys(obj2).forEach((key) => {
             expect(category[0][key]).toEqual(obj2[key]);
@@ -57,15 +54,14 @@ describe('Products Model', () => {
   it('can delete() a product', () => {
     const products = new Products();
     let obj = { name: 'Test Product' };
-    let obj2 = { name: 'Updated Product' };
+    // let obj2 = { name: 'Updated Product' };
 
-    return products.post(obj2).post(obj).then((record) => {
-      return products
-        .delete(record._id)
+    return products.post(obj).then((record) => {
+      return products.delete(record._id)
         .then((product) => {
           // verify delete returns deleted category
-          Object.keys(obj).forEach((key) => {
-            expect(product[0][key]).toEqual(obj[key]);
+          Object.keys(record).forEach((key) => {
+            expect(product[0][key]).toEqual(record[key]);
           });
 
           return products.get().then(allProducts => {
