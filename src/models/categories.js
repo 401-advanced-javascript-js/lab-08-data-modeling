@@ -64,6 +64,8 @@ class Categories {
   delete(_id) {
   }
 
+  
+
 }
 
 module.exports = Categories;

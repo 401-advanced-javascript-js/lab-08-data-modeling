@@ -8,7 +8,7 @@ afterAll(supergoose.stopDB);
 
 describe('Categories Model', () => {
   it('can post() a new category', () => {
-    let obj = {};
+    let obj = {name: 'category1'};
     let categories = new Categories();
 
     return categories
