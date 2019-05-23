@@ -43,8 +43,8 @@ describe('Categories Model', () => {
     return categories.post(obj).then((record) => {
       return categories.put(record._id, obj2)
         .then((category) => {
-          Object.keys(obj).forEach((key) => {
-            expect(category[0][key]).toEqual(obj2[key]);
+          Object.keys(obj2).forEach((key) => {
+            expect(category[key]).toEqual(obj2[key]);
           });
         })
         .catch((e) => console.error('ERR', e));
