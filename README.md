@@ -1,20 +1,20 @@
 # ![CF](http://i.imgur.com/7v5ASc8.png) LAB 08
 
 ## Data Modeling
-### Author: Student/Group Name
+### Author: Jagdeep Singh
 
 Provided a partially working API server, lab is to complete the server's functionality by creating the data models and writing a full test suite.
 
 ### Links and Resources
-* [submission PR](http://xyz.com)
-* [travis](http://xyz.com)
+* [submission PR](https://github.com/401-advanced-javascript-js/lab-08-data-modeling/pull/1)
+* [travis](https://www.travis-ci.com/401-advanced-javascript-js/lab-08-data-modeling)
 * [back-end](http://xyz.com) (when applicable)
-* [front-end](http://xyz.com) (when applicable)
+<!-- * [front-end](http://xyz.com) (when applicable) -->
 
 #### Documentation
 * [api docs](http://xyz.com) (API servers)
 * [jsdoc](http://xyz.com) (Server assignments)
-* [styleguide](http://xyz.com) (React assignments)
+<!-- * [styleguide](http://xyz.com) (React assignments) -->
 
 ### Modules
 #### `modulename.js`
@@ -40,8 +40,11 @@ Usage Notes or examples
   
 #### Tests
 * How do you run tests?
-* What assertions were made?
-* What assertions need to be / should be made?
+
+  `npm test`
+
+<!-- * What assertions were made?
+* What assertions need to be / should be made? -->
 
 #### UML
 Link to an image of the UML for your application and response to events
